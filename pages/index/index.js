@@ -61,10 +61,11 @@ Page({
       success: (res) => {
         var latitude = res.latitude // 纬度
         var longitude = res.longitude // 经度
+        var txtContent = '经度为：' + latitude + '\r\n纬度为：'+ longitude
         console.log(res)
         wx.showModal({
-          title: '弹窗标题',
-          content: '获取成功',
+          title: '您当前的经纬度',
+          content: txtContent,
           showCancel: false,
           confirmText: '确定'
         })
@@ -79,4 +80,39 @@ Page({
       }
     })
   },
+  // 获取当前页面栈
+  getCurrentPages: function () {
+    var res = getCurrentPages()
+    console.log(res)
+  },
+  // 页面跳转
+  goBaidu:function(){
+    console.log('teset')
+    wx.navigateTo({
+      url: 'pages/logs/logs',
+    })
+  },
+  // 发起请求
+  sendRequest:function(){
+    wx.request({
+      url: 'http://api.laravel_test.cn/testapi/index', //仅为示例，并非真实的接口地址
+      data: {
+        x: '123',
+        y: '234'
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        var data = res.data
+        wx.showModal({
+          title: '请求结果',
+          content: data.key,
+          showCancel: false,
+          confirmText: '确定'
+        })
+        console.log(res.data)
+      }
+    })
+  }
 })
