@@ -15,6 +15,10 @@ Page({
     wx.navigateTo({
       url: '../logs/logs'
     })
+    // wx.showToast({
+    //   title: '吐司框延时3s',
+    //   duration: 3000
+    // })
   },
   // 页面加载完成自动获取用户信息
   onLoad: function () {
@@ -85,17 +89,33 @@ Page({
     var res = getCurrentPages()
     console.log(res)
   },
-  // 页面跳转
-  goBaidu:function(){
-    console.log('teset')
+  // 切换tab
+  switchTab:function(){
+    wx.switchTab({
+      url: '../logs/logs',
+    })
+  },
+  // 跳转页面
+  goPage: function () {
     wx.navigateTo({
-      url: 'pages/logs/logs',
+      url: '../news/news',
+    })
+  },
+  // 跳转URL
+  goUrl: function () {
+    wx.navigateTo({
+      url: '../out/out', //
+      success: function () {
+      },       //成功后的回调；
+      fail: function () { },         //失败后的回调；
+      complete: function () { }      //结束后的回调(成功，失败都会执行)
     })
   },
   // 发起请求
   sendRequest:function(){
     wx.request({
-      url: 'http://api.laravel_test.cn/testapi/index', //仅为示例，并非真实的接口地址
+      url: 'http://api.laravel_test.cn/testapi/index', //仅为示例，并非真实的接口地址,
+      method: 'GET',
       data: {
         x: '123',
         y: '234'
@@ -111,8 +131,17 @@ Page({
           showCancel: false,
           confirmText: '确定'
         })
-        console.log(res.data)
       }
+    })
+  },
+  // 计次 +1
+  incrementNum:function(){
+    var num = getApp().globalData.activeNum++
+    wx.showModal({
+      title: '次数',
+      content: '次数：' + num,
+      showCancel: false,
+      confirmText: '确定'
     })
   }
 })

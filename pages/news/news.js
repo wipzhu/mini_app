@@ -1,21 +1,23 @@
-// pages/logs/index.js
+// pages/news/news.js
+var common = require('../../common.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    array: [1, 2, 3, 4, 5],
+    view: 'MINA'
   },
-  
-  // 返回上n级
+
+  // 返回上一级
   goBack: function () {
     var res = getCurrentPages()
     console.log(res)
-    var delta = 2
+    var delta = 1
     wx.showModal({
       title: '提示',
-      content: "将返回" + delta + "级",
+      content: "将返回" + delta +"级",
       showCancel: false,
       success: function (res) {
         wx.navigateBack({
@@ -25,6 +27,18 @@ Page({
     })
   },
 
+  // 跳转页面
+  goPage: function () {
+    wx.navigateTo({
+      url: '../logs/index',
+    })
+  }, 
+  helloMINA: function () {
+    common.sayHello('MINA')
+  },
+  goodbyeMINA: function () {
+    common.sayGoodbye('MINA')
+  },
 
   /**
    * 生命周期函数--监听页面加载

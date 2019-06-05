@@ -1,0 +1,3 @@
+<!--pages/out/out.wxml-->
+<image></image>
+<web-view src="https://www.baidu.com/"></web-view>

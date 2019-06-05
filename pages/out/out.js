@@ -1,4 +1,4 @@
-// pages/logs/index.js
+// pages/out/out.js
 Page({
 
   /**
@@ -7,24 +7,6 @@ Page({
   data: {
 
   },
-  
-  // 返回上n级
-  goBack: function () {
-    var res = getCurrentPages()
-    console.log(res)
-    var delta = 2
-    wx.showModal({
-      title: '提示',
-      content: "将返回" + delta + "级",
-      showCancel: false,
-      success: function (res) {
-        wx.navigateBack({
-          delta: delta //想要返回的层级
-        })
-      }
-    })
-  },
-
 
   /**
    * 生命周期函数--监听页面加载

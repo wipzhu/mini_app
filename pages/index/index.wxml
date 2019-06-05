@@ -11,9 +11,15 @@
     <text class="user-motto">{{greeting}}</text>
   </view>
   <!-- <map bindmarkertap="markertap" longitude="121.45" latitude="31.23"></map> -->
-  <button bindtap='getLocation'> 获取经纬度 </button>
-  <button bindtap='scanCode'> 扫扫码 </button>
-  <button bindtap='sendRequest'> 发起请求 </button>
-  <button bindtap='goBaidu'> 跳转百度 </button>
-  <button bindtap='getCurrentPages'> 当前页面栈 </button>
+  <button class='btn distance' bindtap='getLocation'> 获取经纬度 </button>
+  <button class='distance' bindtap='scanCode'> 扫扫码 </button>
+  <button class='distance' bindtap='sendRequest'> 发起请求 </button>
+  <button class='distance' bindtap='switchTab'> 切换tab </button>
+  <button class='distance' bindtap='goPage'> 跳转页面 </button>
+  <button class='distance' bindtap='goUrl'> 跳转URL </button>
+  <button class='distance' bindtap='getCurrentPages'> 当前页面栈 </button>
+  <button class='distance' bindtap='incrementNum'> 计次 +1 </button>
 </view>
+<tagname property="value">
+Content goes here ...
+</tagname>

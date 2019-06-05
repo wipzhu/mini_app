@@ -1,2 +1,5 @@
 <!--pages/logs/index.wxml-->
 <text>pages/logs/index.wxml</text>
+<view class='container'>
+  <button bindtap='goBack'> 返回上n级 </button>
+</view>

@@ -1,0 +1,32 @@
+
+<view class="container">
+  <button class='distance' bindtap='goPage'> 继续跳转页面 </button>
+  <button class='distance' bindtap='goBack'> 返回上一级 </button>
+</view>
+<view wx:for="{{array}}"> {{item}} </view>
+<view wx:if="{{view == 'WEBVIEW'}}"> WEBVIEW </view>
+<view wx:elif="{{view == 'APP'}}"> APP </view>
+<view wx:else="{{view == 'MINA'}}"> MINA </view>
+
+<view class="container">
+  <button class='distance' bindtap='helloMINA'> hello </button>
+  <button class='distance' bindtap='goodbyeMINA'> goodbye </button>
+</view>
+<!--wxml-->
+<!-- 下面的 getMax 函数，接受一个数组，且返回数组中最大的元素的值 -->
+<wxs module="m1">
+  var getMax = function(array) {
+    var max = undefined;
+    for (var i = 0; i < array.length; ++i) {
+      max = max === undefined ?
+        array[i] :
+        (max >= array[i] ? max : array[i]);
+    }
+    return max;
+  }
+
+  module.exports.getMax = getMax;
+</wxs>
+
+<!-- 调用 wxs 里面的 getMax 函数，参数为 page.js 里面的 array -->
+<button class='distance'> {{m1.getMax(array)}} </button>
